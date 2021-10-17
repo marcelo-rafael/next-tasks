@@ -22,6 +22,35 @@ export default class TodoList {
     return this.#usedFilter
   }
 
+  filterActives() {
+    if(!this.showingOnlyActive()) {
+      return new TodoList(this.#all, TypeFilter.ACTIVE)
+    } else {
+      return this
+    }
+  }
+
+  deleteCompleted() {
+    const onlyActives = this.#all.filter(task => task.active)
+    return new TodoList(onlyActives, TypeFilter.NONE)
+  }
+
+  filterCompleted() {
+    if(!this.showingOnlyCompleted()) {
+      return new TodoList(this.#all, TypeFilter.COMPLETED)
+    } else {
+      return this
+    }
+  }
+
+  RemoveFilter() {
+    if(!this.showingAll()) {
+      return new TodoList(this.#all, TypeFilter.NONE)
+    } else {
+      return this
+    }
+  }
+
   showingAll(): boolean {
     return this.#usedFilter === TypeFilter.NONE
   }
@@ -37,7 +66,7 @@ export default class TodoList {
   private applyFilterTo(tasks: Task[]): Task[] {
     if(this.showingOnlyActive()) {
       return this.applyActiveFilters(tasks)
-    } else if(this.applyActiveFilters(tasks)) {
+    } else if(this.showingOnlyCompleted()) {
       return this.applyCompletedFilters(tasks)
     } else {
       return [...tasks]
