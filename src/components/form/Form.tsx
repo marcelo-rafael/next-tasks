@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import Task from '../../model/Task'
 
 interface FormProps {
@@ -37,7 +40,7 @@ export default function Form(props: FormProps) {
           bg-purple-600 text-white text-xl
         `}
       >
-        +
+        <FontAwesomeIcon size="sm" icon={faPlus} />
       </button>
     </div>
   )

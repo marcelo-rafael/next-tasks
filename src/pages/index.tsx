@@ -6,12 +6,17 @@ import Content from '../components/template/Content'
 import Header from '../components/template/Header'
 import initialTasks from '../data/mocks'
 import Task from '../model/Task'
+import TodoList from '../model/TodoList'
 
 export default function Home() {
   const [tasks, setTasks] = useState(initialTasks)
 
   function newTaskCreated(newTask: Task) {
     setTasks(tasks.addTask(newTask))
+  }
+
+  function changed(newTasks: TodoList) {
+    setTasks(newTasks)
   }
 
   return (
@@ -23,9 +28,7 @@ export default function Home() {
       </Header>
 
       <Content>
-        <List tasks={tasks} changed={(newTasks) => {
-          setTasks(newTasks)
-        }} />
+        <List tasks={tasks} changed={changed} />
       </Content>
     </div>
   )
