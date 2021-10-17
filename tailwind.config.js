@@ -4,7 +4,11 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: theme => ({
+        'todo-img': "url('/images/background.png')"
+      })
+    },
   },
   variants: {
     extend: {},
