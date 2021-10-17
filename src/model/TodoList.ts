@@ -22,7 +22,20 @@ export default class TodoList {
     return this.#usedFilter
   }
 
-  filterActives() {
+  addTask(newTask: Task): TodoList {
+    const all = [...this.#all]
+    all.push(newTask)
+    return new TodoList(all, this.usedFilter)
+  }
+
+  modifyTask(modifiedTask: Task): TodoList {
+    const all = this.#all.map(task => {
+      return task.id === modifiedTask.id ? modifiedTask : task
+    })
+    return new TodoList(all, this.usedFilter)
+  }
+
+  filterActives(): TodoList {
     if(!this.showingOnlyActive()) {
       return new TodoList(this.#all, TypeFilter.ACTIVE)
     } else {
@@ -30,12 +43,12 @@ export default class TodoList {
     }
   }
 
-  deleteCompleted() {
+  deleteCompleted(): TodoList {
     const onlyActives = this.#all.filter(task => task.active)
     return new TodoList(onlyActives, TypeFilter.NONE)
   }
 
-  filterCompleted() {
+  filterCompleted(): TodoList {
     if(!this.showingOnlyCompleted()) {
       return new TodoList(this.#all, TypeFilter.COMPLETED)
     } else {
@@ -43,7 +56,7 @@ export default class TodoList {
     }
   }
 
-  RemoveFilter() {
+  RemoveFilter(): TodoList {
     if(!this.showingAll()) {
       return new TodoList(this.#all, TypeFilter.NONE)
     } else {

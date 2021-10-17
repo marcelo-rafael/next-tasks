@@ -5,7 +5,15 @@ export default function Home() {
   let tasks = initialTasks
   tasks = tasks.filterActives()
   tasks = tasks.filterCompleted()
-  tasks = tasks.RemoveFilter()
+  // tasks = tasks.RemoveFilter()
+  tasks = tasks.deleteCompleted()
+
+  tasks = tasks.addTask(Task.createCompleted(6, 'Lavar os pratos!!!'))
+  tasks = tasks.addTask(Task.createActive(7, 'Cuida das crianças!!!'))
+  tasks = tasks.deleteCompleted()
+
+  tasks = tasks.modifyTask(tasks.items[1].toggleStatus())
+  tasks = tasks.modifyTask(tasks.items[2].toggleStatus())
 
   function renderTasks() {
     return tasks.items.map(task => {
