@@ -1,4 +1,5 @@
 import TodoList from '../../model/TodoList';
+import Buttonlist from './ButtonList';
 import ItemList from './ItemList';
 
 interface ListProps {
@@ -36,6 +37,14 @@ export default function List(props: ListProps) {
         rounded-lg
       `}>
         {renderTasks()}
+        <li className={`p-5`}>
+          <Buttonlist
+            selected={false}
+            onClick={() => {}}
+          >
+            Todas
+          </Buttonlist>
+        </li>
       </ul>
     </div>
   )
