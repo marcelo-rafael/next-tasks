@@ -8,7 +8,7 @@ export default function Selection(props: SelectionProps) {
   return (
     <div className={`
       flex justify-center items-center
-      h-7 w-7 rounded-full cursor-pointer
+      h-7 w-7 rounded-full cursor-pointer text-white
       border border-gray-400 ${gradient}
     `}>
       {props.value ? 'x' : ''}
