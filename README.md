@@ -29,7 +29,7 @@
  Next-Tasks 🚀
 </h4>
 
-<p align="center"><a href="https://simple-next-crud.vercel.app/">Deploy on Vercel</a></p>
+<p align="center"><a href="https://next-tasks-two.vercel.app/">Deploy on Vercel</a></p>
 
 ---
 
