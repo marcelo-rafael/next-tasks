@@ -1,6 +1,6 @@
 interface ButtonlistProps {
   selected?: boolean
-  className?: boolean
+  className?: string
   children: any
   onClick: (event: any) => void
 }
