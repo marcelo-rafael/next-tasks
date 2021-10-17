@@ -1,17 +1,18 @@
-import ItemList from '../components/lista/ItemList';
-import Selection from '../components/lista/Selection';
+import { useState } from 'react'
+import List from '../components/list/List'
+import initialTasks from '../data/mocks'
 
 export default function Home() {
+  const [tasks, setTasks] = useState(initialTasks)
+
   return (
     <div className={`
-      flex flex-col bg-purple-600 
+      flex flex-col bg-gray-300 
       justify-center items-center h-screen
-      text-white
     `}>
-      <ul>
-        <ItemList value="Exemplo de item #01" completed={false} toggleStatus={() => {}} />
-        <ItemList value="Exemplo de item #02" completed={true} toggleStatus={() => {}} />
-      </ul>
+        <List tasks={tasks} changed={(newTasks) => {
+          setTasks(newTasks)
+        }} />
     </div>
   )
 }

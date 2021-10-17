@@ -12,7 +12,7 @@ export default function ItemList(props: ItemListProps) {
 
   return (
     <li onClick={props.toggleStatus} className={`
-      bg-white text-black
+    text-black
       flex items-center p-5 text-xl
       border-b border-gray-400 cursor-pointer
     `}>
