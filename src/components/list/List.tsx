@@ -30,16 +30,17 @@ export default function List(props: ListProps) {
 
   return (
     <div className={`
-      flex w-3/5
+      flex w-3/5 items-start relative
     `}>
       <ul className={`
+        absolute -top-14
         w-full list-none
         bg-white shadow-lg
         rounded-lg
       `}>
         {renderTasks()}
-        <FooterList 
-          tasks={props.tasks} 
+        <FooterList
+          tasks={props.tasks}
           changed={props.changed} />
       </ul>
     </div>
